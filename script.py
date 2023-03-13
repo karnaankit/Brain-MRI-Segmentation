@@ -51,7 +51,7 @@ def main():
  
         slice_no = st.slider('Select Slice', min_value=20, max_value=120, value= 50)
         def showPredictsById(case, start_slice=slice_no):
-            path = 'D:/mri-seg/data'
+            path = 'data/'
             gt = nib.load(os.path.join(path, f'BraTS20_Training_{case}_seg.nii')).get_fdata()
             origImage = nib.load(os.path.join(path, f'BraTS20_Training_{case}_flair.nii')).get_fdata()
             p = predictByPath(path, case)
@@ -80,7 +80,7 @@ def main():
             axarr[5].imshow(enhancing[start_slice, :, ], cmap="OrRd", interpolation='none', alpha=0.3)
             axarr[5].title.set_text(f'{SEGMENT_CLASSES[3]} predicted')
             plt.savefig('segment.png', bbox_inches='tight')
-            st.image('segment.png', use_column_width=False)
+            st.image('segment.png', use_column_width=True)
         showPredictsById(case)
  
     except:

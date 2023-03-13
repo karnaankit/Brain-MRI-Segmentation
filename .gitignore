@@ -131,3 +131,6 @@ dmypy.json
 #Folders
 combined/
 dice/
+.idea/
+data/
+segment.png
